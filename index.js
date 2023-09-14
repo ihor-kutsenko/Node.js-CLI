@@ -1,4 +1,4 @@
-console.log("hello 7878");
+const { Command } = require("commander");
 
 const contacts = require("./contacts");
 
@@ -6,7 +6,7 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
   switch (action) {
     case "list":
       const allContacts = await contacts.listContacts();
-      console.log(allContacts);
+      console.table(allContacts);
       break;
 
     case "get":
@@ -38,6 +38,20 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
       console.warn("\x1B[31m Unknown action type!");
   }
 };
+
+const program = new Command();
+program
+  .option("-a, --action <type>", "choose action")
+  .option("-i, --id <type>", "user id")
+  .option("-n, --name <type>", "user name")
+  .option("-e, --email <type>", "user email")
+  .option("-p, --phone <type>", "user phone");
+
+program.parse(process.argv);
+
+const argv = program.opts();
+
+invokeAction(argv);
 
 // invokeAction({ action: "list" });
 // invokeAction({ action: "get", id: "AeHIrLTr6JkxGE6SN-0Rw" });
