@@ -52,22 +52,3 @@ program.parse(process.argv);
 const argv = program.opts();
 
 invokeAction(argv);
-
-// invokeAction({ action: "list" });
-// invokeAction({ action: "get", id: "AeHIrLTr6JkxGE6SN-0Rw" });
-// invokeAction({
-//   action: "add",
-//   name: "Radio",
-//   email: "radio@radio.com",
-//   phone: "0987778899",
-// });
-
-// invokeAction({
-//   action: "update",
-//   id: "n_GfobyZR8l8wo8Fk67uP",
-//   name: "Radio-TV",
-//   email: "radio@radio.com",
-//   phone: "0987778899",
-// });
-
-// invokeAction({ action: "remove", id: "n_GfobyZR8l8wo8Fk67uP" });
